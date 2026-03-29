@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Total Auto Services | HVAC Services in Houston</title>
+
+  <!-- Google Fonts: Barlow Condensed (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+    :root {
+      --navy:       #0c1825;
+      --navy-mid:   #12243a;
+      --navy-light: #1a3352;
+      --orange:     #f56c0b;
+      --orange-dim: #c9560a;
+      --cream:      #f5f0e8;
+      --white:      #ffffff;
+      --text-muted: #7a9ab5;
+      --border:     rgba(245,108,11,0.18);
+      --radius:     6px;
+      --font-head:  'Barlow Condensed', sans-serif;
+      --font-body:  'DM Sans', sans-serif;
+    }
+
+    /* ─── RESET & BASE ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── UTILITY ───────────────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ─── TOPBAR ────────────────────────────────────────────────── */
+    .topbar {
+      background: var(--orange);
+      padding: 8px 0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+    .topbar span { opacity: 0.85; margin: 0 12px; }
+    .topbar strong { opacity: 1; }
+
+    /* ─── NAV ───────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12,24,37,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--orange-dim); }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,20,40,0.82) 0%, rgba(10,20,40,0.72) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+    }
+    /* Decorative diagonal stripe */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 120%;
+      background: var(--navy-light);
+      transform: skewX(-8deg);
+      opacity: 0.5;
+    }
+    /* Grid texture overlay */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,108,11,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,108,11,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,108,11,0.12);
+      border: 1px solid rgba(245,108,11,0.3);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(48px, 7vw, 82px);
+      font-weight: 800;
+      line-height: 1.0;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+      display: block;
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--orange-dim); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      background: rgba(245,108,11,0.08);
+    }
+
+    /* Star rating in hero */
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .stars { color: var(--orange); font-size: 18px; letter-spacing: 2px; }
+    .rating-text { font-size: 13px; color: var(--text-muted); }
+    .rating-text strong { color: var(--white); }
+
+    /* ─── TRUST BAR ─────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--navy-light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .trust-icon {
+      width: 32px; height: 32px;
+      background: rgba(245,108,11,0.12);
+      border: 1px solid rgba(245,108,11,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* ─── SECTION HEADER ────────────────────────────────────────── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+    .section-title span { color: var(--orange); }
+
+    /* ─── SERVICES ──────────────────────────────────────────────── */
+    .services { padding: 96px 0; }
+    .services-header { margin-bottom: 56px; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover { background: var(--navy-light); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(245,108,11,0.1);
+      border: 1px solid rgba(245,108,11,0.2);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ─── WHY US ────────────────────────────────────────────────── */
+    .why-us {
+      padding: 96px 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .why-text { }
+    .why-text .section-label { margin-bottom: 12px; }
+    .why-text .section-title { margin-bottom: 24px; }
+    .why-text p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .stat-box {
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 28px 24px;
+    }
+    .stat-number {
+      font-family: var(--font-head);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ─── REVIEWS ───────────────────────────────────────────────── */
+    .reviews { padding: 96px 0; }
+    .reviews-header { margin-bottom: 56px; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2px;
+    }
+    .review-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 28px;
+      position: relative;
+    }
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px; right: 24px;
+      font-family: var(--font-head);
+      font-size: 80px;
+      font-weight: 800;
+      color: rgba(245,108,11,0.1);
+      line-height: 1;
+    }
+    .review-stars { color: var(--orange); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+    .review-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .reviewer-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--navy-light);
+      border: 2px solid rgba(245,108,11,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .reviewer-info { }
+    .reviewer-name { font-size: 14px; font-weight: 600; }
+    .reviewer-meta { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── CONTACT / CTA ─────────────────────────────────────────── */
+    .contact {
+      padding: 96px 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info .section-label { margin-bottom: 12px; }
+    .contact-info .section-title { margin-bottom: 20px; }
+    .contact-info p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 18px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .contact-dot {
+      width: 36px; height: 36px;
+      background: rgba(245,108,11,0.1);
+      border: 1px solid rgba(245,108,11,0.2);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+    .contact-item-value { font-size: 15px; font-weight: 500; }
+
+    /* ─── FORM ──────────────────────────────────────────────────── */
+    .form-card {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+    }
+    .form-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+    .form-row { margin-bottom: 18px; }
+    .form-row label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-row input::placeholder,
+    .form-row textarea::placeholder { color: rgba(122,154,181,0.5); }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus {
+      border-color: var(--orange);
+      background: rgba(245,108,11,0.04);
+    }
+    .form-row select { cursor: pointer; }
+    .form-row textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      width: 100%;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 15px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--orange-dim); transform: translateY(-1px); }
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .footer-logo span { color: var(--orange); }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .trust-items { gap: 24px; }
+      .hero { min-height: auto; padding: 80px 0 64px; }
+    }
+
+    /* ─── ENTRY ANIMATIONS ──────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+    .hero h1      { animation: fadeUp 0.5s 0.1s ease both; }
+    .hero-sub     { animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-actions { animation: fadeUp 0.5s 0.3s ease both; }
+    .hero-rating  { animation: fadeUp 0.5s 0.4s ease both; }
+
+    /* ─── EMERGENCY BANNER ──────────────────────────────────────── */
+    .emergency-banner {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 32px rgba(245,108,11,0.4);
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      animation: fadeUp 0.6s 0.8s ease both;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .emergency-banner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(245,108,11,0.5);
+    }
+    .emergency-dot {
+      width: 8px; height: 8px;
+      background: var(--white);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <strong>24/7 Emergency Service</strong>
+    <span>·</span>
+    <span>Serving Houston &amp; Surrounding Areas</span>
+    <span>·</span>
+    <span>Call Now: <strong>+1 713-433-7745</strong></span>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo">Total<span>.</span></div>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta">Free Estimate</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Houston's Trusted HVAC Experts</div>
+        <h1>
+          Expert HVAC <em>You Can Count On.</em>
+        </h1>
+        <p class="hero-sub">
+          Total Auto Services has been keeping Houston homes and businesses comfortable year-round. Fast response, honest pricing, work that lasts.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:+17134337745" class="btn-primary">
+            <span>📞</span> Call +1 713-433-7745
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Get a Free Estimate →
+          </a>
+        </div>
+        <div class="hero-rating">
+          <div class="stars">★★★★★</div>
+          <div class="rating-text">
+            <strong>4.7/5</strong> rating · <strong>220+</strong> Google Reviews
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item"><div class="trust-icon">⚡</div> Same-Day Service</div>
+        <div class="trust-item"><div class="trust-icon">✓</div> Licensed &amp; Insured</div>
+        <div class="trust-item"><div class="trust-icon">🛡</div> Work Guaranteed</div>
+        <div class="trust-item"><div class="trust-icon">💲</div> Upfront Pricing</div>
+        <div class="trust-item"><div class="trust-icon">🔧</div> All Brands Serviced</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">Complete HVAC <span>Solutions</span></h2>
+      </div>
+      <div class="services-grid">
+        <!-- TEMPLATE: repeat .service-card for each service in {{SERVICES_LIST}} -->
+        <div class="service-card">
+          <div class="service-icon">❄️</div>
+          <h3>AC Installation</h3>
+          <p>New system installation sized and configured for your space. We handle everything from removal to final testing.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <h3>Heating Repair</h3>
+          <p>Fast diagnosis and repair of furnaces, heat pumps, and all heating systems. Most repairs completed same day.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌡️</div>
+          <h3>AC Repair</h3>
+          <p>From refrigerant leaks to compressor issues — we diagnose fast and fix it right the first time.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>Maintenance Plans</h3>
+          <p>Regular tune-ups that extend equipment life, reduce breakdowns, and keep your energy bills low.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💨</div>
+          <h3>Air Quality</h3>
+          <p>Filtration systems, duct cleaning, and humidity control for healthier indoor air all year round.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>Emergency Service</h3>
+          <p>24/7 emergency response for breakdowns that can't wait. We're there when you need us most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us" id="about">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text">
+          <p class="section-label">Why Total Auto Services</p>
+          <h2 class="section-title">Local Experts. <span>Real Results.</span></h2>
+          <p>
+            We're not a national chain — we're your neighbors. Total Auto Services has served Houston for years with the kind of honest, reliable work that keeps customers coming back and sending their friends.
+          </p>
+          <a href="#contact" class="btn-primary">Book a Service Call →</a>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number">220+</div>
+            <div class="stat-label">5-Star Reviews</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Emergency Line</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Work Guaranteed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">4.7★</div>
+            <div class="stat-label">Google Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <p class="section-label">Customer Reviews</p>
+        <h2 class="section-title">What Houston <span>Is Saying</span></h2>
+      </div>
+      <div class="reviews-grid">
+        <!-- TEMPLATE: populate from {{REVIEWS_LIST}} — up to 3 reviews -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">These guys saved us. furnace stopped working right before the weekend and they still made time to come out. Fast, clean, and friendly. Didn't try to upsell me on anything I didn't need.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">S.</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Susan</div>
+              <div class="reviewer-meta">Google Review · 2 weeks ago</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">I've used a few HVAC companies over the years and this is by far the best experience I've had. The tech who serviced our air handler was on time, thorough, and explained everything clearly.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">M.</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Mary</div>
+              <div class="reviewer-meta">Google Review · 2 months ago</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">These guys saved us. furnace stopped working right before the weekend and they still made time to come out. Fast, clean, and friendly. Didn't try to upsell me on anything I didn't need.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">G.</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Greg</div>
+              <div class="reviewer-meta">Google Review · 2 weeks ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="section-label">Get In Touch</p>
+          <h2 class="section-title">Ready to <span>Help You</span> Today</h2>
+          <p>
+            Whether it's a breakdown, a new installation, or a seasonal tune-up — we respond fast and price honestly. Call us or fill out the form and we'll be in touch within the hour.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-dot">📞</div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-value"><a href="tel:+17134337745">+1 713-433-7745</a></div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-dot">📍</div>
+              <div>
+                <div class="contact-item-label">Service Area</div>
+                <div class="contact-item-value">Houston &amp; Surrounding Areas</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-dot">🕐</div>
+              <div>
+                <div class="contact-item-label">Hours</div>
+                <div class="contact-item-value">Mon–Fri 7am–7pm · Emergencies 24/7</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-dot">📧</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">admin@totalautoservices.net</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 class="form-title">Request a Free Estimate</h3>
+          <form>
+            <div class="form-row">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="John Smith" />
+            </div>
+            <div class="form-row">
+              <label for="fphone">Phone Number</label>
+              <input type="tel" id="fphone" placeholder="(555) 000-0000" />
+            </div>
+            <div class="form-row">
+              <label for="fservice">Service Needed</label>
+              <select id="fservice">
+                <option value="" disabled selected>Select a service…</option>
+                <option>AC Repair</option>
+                <option>Heating Repair</option>
+                <option>New Installation</option>
+                <option>Maintenance / Tune-Up</option>
+                <option>Emergency Service</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="fmsg">Tell Us More (optional)</label>
+              <textarea id="fmsg" placeholder="Describe the issue or job…"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Request →</button>
+            <p class="form-note">🔒 We respond within 1 hour during business hours</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Total<span>.</span></div>
+        <p class="footer-copy">© 2025 Total Auto Services · Houston · All rights reserved</p>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BUTTON -->
+  <a href="tel:+17134337745" class="emergency-banner">
+    <div class="emergency-dot"></div>
+    24/7 Emergency: +1 713-433-7745
+  </a>
+
+  <!-- SMOOTH SCROLL + FORM HANDLER -->
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // Form submission placeholder (connect to your backend or Formspree)
+    document.querySelector('form').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.querySelector('.form-submit');
+      btn.textContent = '✓ Request Sent! We\'ll call you shortly.';
+      btn.style.background = '#1a6e3c';
+      btn.disabled = true;
+    });
+  </script>
+
+</body>
+</html>
