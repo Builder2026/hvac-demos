@@ -11,6 +11,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+
+    :root {
+      --navy:       #0d1f17;
+      --navy-mid:   #142b20;
+      --navy-light: #1b3a2b;
+      --orange:     #10b981;
+      --orange-dim: #059669;
+      --cream:      #e8f5ee;
+      --text-muted: #6aab88;
+      --border:     rgba(16,185,129,0.18);
+      --font-head:  'Barlow Condensed', sans-serif;
+      --font-body:  'DM Sans', sans-serif;
+    }
+    .hero-bg::before {
+      background-image:
+        linear-gradient(#10b98118 1px, transparent 1px),
+        linear-gradient(90deg, #10b98118 1px, transparent 1px);
+    }
+    
     /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
     :root {
       --navy:       #0c1825;
@@ -678,7 +697,7 @@
     <span>·</span>
     <span>Serving Katy &amp; Surrounding Areas</span>
     <span>·</span>
-    <span>Call Now: <strong>+1 713-460-2653</strong></span>
+    <span>Call Now: <strong>(713) 460-2653</strong></span>
   </div>
 
   <!-- NAV -->
@@ -710,8 +729,8 @@
           AC Man Houston has been keeping Katy homes and businesses comfortable year-round. Fast response, honest pricing, work that lasts.
         </p>
         <div class="hero-actions">
-          <a href="tel:+17134602653" class="btn-primary">
-            <span>📞</span> Call +1 713-460-2653
+          <a href="tel:7134602653" class="btn-primary">
+            <span>📞</span> Call (713) 460-2653
           </a>
           <a href="#contact" class="btn-secondary">
             Get a Free Estimate →
@@ -828,34 +847,34 @@
         <!-- TEMPLATE: populate from {{REVIEWS_LIST}} — up to 3 reviews -->
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Booked online, got a confirmation call within the hour, tech showed up on time. Our HVAC system had a refrigerant issue and it was handled cleanly. Will absolutely use them again.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">M.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Mary</div>
-              <div class="reviewer-meta">Google Review · 3 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Booked online, got a confirmation call within the hour, tech showed up on time. Our HVAC system had a refrigerant issue and it was handled cleanly. Will absolutely use them again.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">R.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Rachel</div>
-              <div class="reviewer-meta">Google Review · 3 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">I've used a few HVAC companies over the years and this is by far the best experience I've had. The tech who serviced our HVAC system was on time, thorough, and explained everything clearly.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">D.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Diane</div>
-              <div class="reviewer-meta">Google Review · 3 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
@@ -878,7 +897,7 @@
               <div class="contact-dot">📞</div>
               <div>
                 <div class="contact-item-label">Phone</div>
-                <div class="contact-item-value"><a href="tel:+17134602653">+1 713-460-2653</a></div>
+                <div class="contact-item-value"><a href="tel:7134602653">(713) 460-2653</a></div>
               </div>
             </div>
             <div class="contact-item">
@@ -956,9 +975,9 @@
   </footer>
 
   <!-- FLOATING CALL BUTTON -->
-  <a href="tel:+17134602653" class="emergency-banner">
+  <a href="tel:7134602653" class="emergency-banner">
     <div class="emergency-dot"></div>
-    24/7 Emergency: +1 713-460-2653
+    24/7 Emergency: (713) 460-2653
   </a>
 
   <!-- SMOOTH SCROLL + FORM HANDLER -->

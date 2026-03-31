@@ -8,9 +8,28 @@
   <!-- Google Fonts: Barlow Condensed (display) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+
+    :root {
+      --navy:       #1a1214;
+      --navy-mid:   #271820;
+      --navy-light: #38202e;
+      --orange:     #e11d48;
+      --orange-dim: #be123c;
+      --cream:      #f5e8ec;
+      --text-muted: #a87080;
+      --border:     rgba(225,29,72,0.18);
+      --font-head:  'Bebas Neue', sans-serif;
+      --font-body:  'Inter', sans-serif;
+    }
+    .hero-bg::before {
+      background-image:
+        linear-gradient(#e11d4818 1px, transparent 1px),
+        linear-gradient(90deg, #e11d4818 1px, transparent 1px);
+    }
+    
     /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
     :root {
       --navy:       #0c1825;
@@ -678,7 +697,7 @@
     <span>·</span>
     <span>Serving Houston &amp; Surrounding Areas</span>
     <span>·</span>
-    <span>Call Now: <strong>+1 713-682-0888</strong></span>
+    <span>Call Now: <strong>(713) 682-0888</strong></span>
   </div>
 
   <!-- NAV -->
@@ -710,8 +729,8 @@
           Premier Air Conditioning & Heating has been keeping Houston homes and businesses comfortable year-round. Fast response, honest pricing, work that lasts.
         </p>
         <div class="hero-actions">
-          <a href="tel:+17136820888" class="btn-primary">
-            <span>📞</span> Call +1 713-682-0888
+          <a href="tel:7136820888" class="btn-primary">
+            <span>📞</span> Call (713) 682-0888
           </a>
           <a href="#contact" class="btn-secondary">
             Get a Free Estimate →
@@ -828,34 +847,34 @@
         <!-- TEMPLATE: populate from {{REVIEWS_LIST}} — up to 3 reviews -->
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Honest, reliable, and fairly priced. Had them out to look at our air handler and they gave me a straight answer instead of trying to push a full replacement. Really appreciated the transparency.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">B.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Barbara</div>
-              <div class="reviewer-meta">Google Review · 3 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Our heat pump went out on a sweltering day and they came out same-day. Tech was knowledgeable, had the part on the truck, and got us back up and running in under two hours. Price was very reasonable too.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">M.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Mary</div>
-              <div class="reviewer-meta">Google Review · 2 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">I've used a few HVAC companies over the years and this is by far the best experience I've had. The tech who serviced our heat pump was on time, thorough, and explained everything clearly.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">D.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">David</div>
-              <div class="reviewer-meta">Google Review · 1 month ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
@@ -878,7 +897,7 @@
               <div class="contact-dot">📞</div>
               <div>
                 <div class="contact-item-label">Phone</div>
-                <div class="contact-item-value"><a href="tel:+17136820888">+1 713-682-0888</a></div>
+                <div class="contact-item-value"><a href="tel:7136820888">(713) 682-0888</a></div>
               </div>
             </div>
             <div class="contact-item">
@@ -956,9 +975,9 @@
   </footer>
 
   <!-- FLOATING CALL BUTTON -->
-  <a href="tel:+17136820888" class="emergency-banner">
+  <a href="tel:7136820888" class="emergency-banner">
     <div class="emergency-dot"></div>
-    24/7 Emergency: +1 713-682-0888
+    24/7 Emergency: (713) 682-0888
   </a>
 
   <!-- SMOOTH SCROLL + FORM HANDLER -->

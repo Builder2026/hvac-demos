@@ -4,3 +4,8 @@ generate.py
 .DS_Store
 .claude/
 output/
+.env
+*.csv
+scrape.py
+leads_enriched.csv
+leads_with_personalization.csv

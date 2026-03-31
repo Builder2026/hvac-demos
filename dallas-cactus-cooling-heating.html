@@ -8,9 +8,28 @@
   <!-- Google Fonts: Barlow Condensed (display) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+
+    :root {
+      --navy:       #091419;
+      --navy-mid:   #0f2030;
+      --navy-light: #163047;
+      --orange:     #06b6d4;
+      --orange-dim: #0891b2;
+      --cream:      #e0f5f9;
+      --text-muted: #5a9aaa;
+      --border:     rgba(6,182,212,0.18);
+      --font-head:  'Montserrat', sans-serif;
+      --font-body:  'Open Sans', sans-serif;
+    }
+    .hero-bg::before {
+      background-image:
+        linear-gradient(#06b6d418 1px, transparent 1px),
+        linear-gradient(90deg, #06b6d418 1px, transparent 1px);
+    }
+    
     /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
     :root {
       --navy:       #0c1825;
@@ -678,7 +697,7 @@
     <span>·</span>
     <span>Serving Dallas &amp; Surrounding Areas</span>
     <span>·</span>
-    <span>Call Now: <strong>+1 214-817-0448</strong></span>
+    <span>Call Now: <strong>(214) 817-0448</strong></span>
   </div>
 
   <!-- NAV -->
@@ -710,8 +729,8 @@
           Cactus Cooling & Heating has been keeping Dallas homes and businesses comfortable year-round. Fast response, honest pricing, work that lasts.
         </p>
         <div class="hero-actions">
-          <a href="tel:+12148170448" class="btn-primary">
-            <span>📞</span> Call +1 214-817-0448
+          <a href="tel:2148170448" class="btn-primary">
+            <span>📞</span> Call (214) 817-0448
           </a>
           <a href="#contact" class="btn-secondary">
             Get a Free Estimate →
@@ -720,7 +739,7 @@
         <div class="hero-rating">
           <div class="stars">★★★★★</div>
           <div class="rating-text">
-            <strong>4.9/5</strong> rating · <strong>67+</strong> Google Reviews
+            <strong>4.9  67 Reviews/5</strong> rating · <strong>67+</strong> Google Reviews
           </div>
         </div>
       </div>
@@ -809,7 +828,7 @@
             <div class="stat-label">Work Guaranteed</div>
           </div>
           <div class="stat-box">
-            <div class="stat-number">4.9★</div>
+            <div class="stat-number">4.9  67 Reviews★</div>
             <div class="stat-label">Google Rating</div>
           </div>
         </div>
@@ -828,34 +847,34 @@
         <!-- TEMPLATE: populate from {{REVIEWS_LIST}} — up to 3 reviews -->
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Honest, reliable, and fairly priced. Had them out to look at our AC unit and they gave me a straight answer instead of trying to push a full replacement. Really appreciated the transparency.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">G.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Greg</div>
-              <div class="reviewer-meta">Google Review · 2 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Very impressed with the whole experience. The technician took time to explain the issue with our HVAC system and gave me options before doing anything. Felt like I was in good hands.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">R.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Robert</div>
-              <div class="reviewer-meta">Google Review · 2 months ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">Honest, reliable, and fairly priced. Had them out to look at our furnace and they gave me a straight answer instead of trying to push a full replacement. Really appreciated the transparency.</p>
+          <p class="review-text"></p>
           <div class="reviewer">
-            <div class="reviewer-avatar">K.</div>
+            <div class="reviewer-avatar"></div>
             <div class="reviewer-info">
-              <div class="reviewer-name">Kevin</div>
-              <div class="reviewer-meta">Google Review · 3 weeks ago</div>
+              <div class="reviewer-name"></div>
+              <div class="reviewer-meta">Google Review · </div>
             </div>
           </div>
         </div>
@@ -878,7 +897,7 @@
               <div class="contact-dot">📞</div>
               <div>
                 <div class="contact-item-label">Phone</div>
-                <div class="contact-item-value"><a href="tel:+12148170448">+1 214-817-0448</a></div>
+                <div class="contact-item-value"><a href="tel:2148170448">(214) 817-0448</a></div>
               </div>
             </div>
             <div class="contact-item">
@@ -956,9 +975,9 @@
   </footer>
 
   <!-- FLOATING CALL BUTTON -->
-  <a href="tel:+12148170448" class="emergency-banner">
+  <a href="tel:2148170448" class="emergency-banner">
     <div class="emergency-dot"></div>
-    24/7 Emergency: +1 214-817-0448
+    24/7 Emergency: (214) 817-0448
   </a>
 
   <!-- SMOOTH SCROLL + FORM HANDLER -->
